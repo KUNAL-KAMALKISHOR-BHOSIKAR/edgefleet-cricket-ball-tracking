@@ -1,4 +1,4 @@
-# Cricket Ball Detection and Tracking (EdgeFleet.ai Assignment)
+# Cricket Ball Detection and Tracking
 
 This repository implements a complete computer vision pipeline to detect and track a cricket ball in videos captured from a single static camera, as part of the EdgeFleet.ai AI/ML assessment.
 
@@ -6,8 +6,6 @@ The system outputs:
 - Per-frame ball centroid annotations (CSV)
 - A processed video with ball centroid and trajectory overlay
 - Fully reproducible inference code with no training required
-
----
 
 ## Problem Overview
 
@@ -18,8 +16,6 @@ Tracking a cricket ball is challenging due to:
 - Visual similarity to bats and player highlights
 
 Given the constraint that the provided dataset must not be used for training, this solution relies on a classical computer vision pipeline combined with Kalman filter–based tracking.
-
----
 
 ## Approach Summary
 
@@ -44,8 +40,6 @@ The pipeline consists of:
    Green dot: ball centroid  
    Blue polyline: ball trajectory
 
----
-
 ## Repository Structure
 
 edgefleet-cricket-ball-tracking/  
@@ -53,20 +47,17 @@ edgefleet-cricket-ball-tracking/
 ├── code/  
 │   ├── infer.py        # Main inference pipeline  
 │   ├── detect.py       # Ball detection logic  
-│   ├── track.py        # Kalman filter tracking  
-│   └── config.yaml     # Optional configuration  
+│   └── track.py        # Kalman filter tracking  
 │  
 ├── annotations/  
-│   └── example.csv     # Example per-frame annotations  
+│   └── 1.csv     # Per-frame annotations
 │  
 ├── results/  
-│   └── example.mp4     # Example output video  
+│   └── 1.mp4     # Output video  
 │  
 ├── requirements.txt  
 ├── README.md  
 └── report.pdf  
-
----
 
 ## Dataset
 
@@ -79,8 +70,6 @@ After downloading, place videos locally, for example:
 
 data/videos/1.mp4
 
----
-
 ## Setup Instructions
 
 1. Create a virtual environment (recommended):
@@ -92,13 +81,9 @@ source venv/bin/activate
 
 pip install -r requirements.txt  
 
----
-
 ## Running Inference
 
 python code/infer.py --video data/videos/1.mp4 --out_video results/1_output.mp4 --out_csv annotations/1.csv
-
----
 
 ## Output Format
 
@@ -116,8 +101,6 @@ Processed video (results/*.mp4):
 - Green dot: ball centroid
 - Blue line: recent ball trajectory
 
----
-
 ## Debugging Notes
 
 During development:
@@ -128,8 +111,6 @@ During development:
 
 Details are documented in report.pdf.
 
----
-
 ## Limitations
 
 - Performance may degrade under extreme motion blur
@@ -137,17 +118,12 @@ Details are documented in report.pdf.
 - HSV thresholds may require tuning for different lighting conditions
 - No explicit bounce or physics-based modeling is used
 
----
-
 ## Conclusion
 
 This project demonstrates that a carefully engineered classical computer vision pipeline, combined with temporal filtering, can robustly track a fast-moving cricket ball without any training data. The system is modular, reproducible, and suitable for real-time or edge deployment scenarios.
-
----
 
 ## Author
 
 Kunal Kamalkishor Bhosikar  
 M.S. (by Research), Computer Science  
 IIIT Hyderabad
-
